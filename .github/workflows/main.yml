@@ -1,18 +1,14 @@
-name: Build Geode Mod
-
-on:
-  push:
-  workflow_dispatch:
-
+name: Build
+on: [push]
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: geode-sdk/build-geode-mod@main
+      - uses: geode-sdk/build-geode-mod@v5
         with:
-          geode: 5.0.0
-          platform: win
+          sdk: v5.3.0
+          bindings: v5.3.0
       - uses: actions/upload-artifact@v4
         with:
           name: mod
